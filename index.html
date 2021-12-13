@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Self-review questionnaire: Societal Impact</title>
+<script class="remove" src="https://www.w3.org/Tools/respec/respec-w3c">
+</script>
+<script class="remove">
+var respecConfig = {
+  specStatus: "draft-finding",
+  editors: [
+    {
+      name: "Amy Guy",
+      url: "https://rhiaro.co.uk",
+      company: "Digital Bazaar",
+    },
+  ],
+  group: "tag",
+  wgPublicList: "www-tag",
+  github: "w3ctag/societal-impact-questionnaire",
+  format: "markdown",
+  localBiblio: {
+    "EWP" : {
+      title: "Ethical Web Principles",
+      href: "https://www.w3.org/2001/tag/doc/ethical-web-principles/",
+      publisher: "W3C",
+    },
+  },
+};
+</script>
+<body class="informative">
+
+<section id="abstract">
+The web should be a platform that helps people and provides a net positive
+social benefit. As we continue to evolve the web platform, we must consider
+the consequences of our work. This document sets out questions for
+specification authors, reviewers, and implementors of new web platform
+technologies to answer as part of a critical assessment of the impact of their
+work.
+</section>
+
+<section id="sotd">
+This document is an early draft and does not reflect the consensus of the TAG.
+</section>
+
+## Introduction {#intro}
+
+The web platform has a broad global reach, and is used for a huge variety of
+different purposes. The architecture of the web platform increases in
+complexity with each new feature added, and it is difficult to predict how a
+change in one place may impact other feature designers or end users in
+another. New features, and additions or changes to existing features, should
+bring benefits to end users of the web, and avoid doing harms.
+
+The questions in this document are to help specification authors as they think
+through the impacts implementations of their features may have, both in the
+immediate scope of their work, as well as more widely. The questions encourage
+the reader to think about perspectives other than their own, as well as to
+think about worst case scenarios.
+
+Many things are not used in the way their creators intended them, which can be
+very positive or very harmful. Whilst specification authors can't be held
+responsible for every possible future implementation, in contexts which may
+not even exist today, it is important to think critically about technologies
+which have the potential to directly and indirectly affect large numbers of
+people.
+
+This is particularly important as the web's reach means it can have an
+amplifying effect on social phenomena. Technology which provides a threat or a
+benefit to a small number may result in a wider society where the same threat
+or benefit is commonplace, when the technology is available as part of the web
+platform.
+
+These questions are an accompaniment to the [[EWP|Ethical Web Principles]],
+intended to help specification authors and reviewers to think more concretely
+about the ethical implications of particular specification features.
+
+## Questions to consider {#questions}
+
+### What kinds of activities do you anticipate your specification becoming a critical part of?
+
+Think about the use cases of stakeholders currently engaged in work on the
+specification, as well as potential implementors in the future. Is this
+something that may be used by citizens as part of their interactions with
+governments? Will it be used in workplaces or schools? Is it more applicable
+to a niche community? Is it something that a person might run on a device they
+carry with them (like a mobile phone or e-reader) or something that runs on a
+device in the home (like an internet-enabled fridge)?
+
+In this context, if access to the features in your specification become
+unavailable, what problems might this cause to end users? What mitigations do
+you have in place?
+
+### What kinds of activities could your specification become a part of that you are not designing for?
+
+Are there other use cases that can be met by your feature(s) that were not
+part of your original plans? People who use, build and author on the web
+platform can be very creative and use features in unexpected ways. Think
+beyond the problems you set out to solve with your specification. How might
+they be useful in other problem spaces or ecosystems? Are there any other
+groups you could reach out to to discuss this potential further?
+
+### What risks do you see in features of your specification being misused, or used differently from how you intended?
+
+Think about worst case scenarios. Bad actors may try to trick people, try to
+inject malware, steal information, track people's activities without their
+knowledge or consent, leak information across origin boundaries, game people's
+consent, surveil people. If one or more of the parties involved in an
+implementation of your feature(s) are bad actors, who can they exploit and
+how? Explain any mitigations you have in place in your specification, and in
+the wider ecosystem.
+
+Next think about possible use cases that may be completely different from the
+problems you set out to solve when designing your feature(s). How does the
+threat model change? What unexpected consequences could arise?
+
+### Can users of the Web Platform choose not to use features of your specification?
+
+What does your specification do from an end-user perspective? What happens if
+the end-user doesn't want that? How easy is it for someone to opt out of these
+features? What might they lose? Are end-users able to give meaningful consent
+to using these features? In what ways can people be coerced into using these
+features, for example by a malicious party; through the use of manipulative
+design features; through strong social or cultural expectations, etc?
+
+### What groups of people are excluded from using features of your specification?
+
+What steps have you taken as part of the specification to ensure the features
+are available to as many people as possible? What additional steps have you
+taken / are being taken / will need to be taken in the wider ecosystem to
+improve access and inclusivity of these features?
+
+If certain groups are deliberately excluded from using these features, explain
+why.
+
+### What effect may features of your specification have on minority groups?
+
+Minority (underrepresented) or historically disadvantaged groups may be
+different depending on culture, location, or other context. Think about parts
+of society who may have trouble getting their voice heard, or their needs
+taken seriously; who have faced prejudice and discrimination in the past, or
+still do so today. In what ways might technology built around the feature(s)
+of your specification impact groups with these characteristics? Are there any
+specific groups who would be particularly impacted? Are there divides in
+society which may be widened (or closed)? Think also about the broader
+ecosystem in which your feature(s) will be deployed. What is in place to
+mitigate negative effects?
+
+### What are the power dynamics at play in implementations of your specification?
+
+As a result of these features, explain which parties are granted additional
+power, and which have power removed, and to what extent. In a worst case
+scenario, what power imbalances are exacerbated as a result of implementations
+of your specification? Parties to consider include the User Agent, device and
+software vendors, site authors, users of the Web Platform, intermediaries.
+
+Where is power concentrated in the ecosystem of which your specification is a
+part, and do features of your specification increase or reduce that
+concentration of power?
+
+What structural inequalities may be reinforced by the ecosystem your
+specification is part of, and which may be reduced?
+
+### What points of centralization does your feature bring to the web platform?
+
+Do features of your specification introduce any ways of restricting or
+controlling flows of information? Does it make use of any existing gatekeepers
+on the web, and does it bring any new ones? If so, what are the benefits and
+disadvantages?
+
+### To what extent do the features in your specification result in increased power consumption or emissions?
+
+What steps have you taken to increase efficiency, or decrease processing
+requirements of the devices which will run implementations of your
+specification? If applicable, how are you reducing data storage needs on
+clientside devices?
+
+Does your specification add features that will encourage or necessitate web
+users to update their devices (either software or hardware) to use them?
+
+Consider also the wider ecosystem which your specification is intended to be
+part of. Is there anything you can do to mandate or encourage environmentally
+sustainable practices within this ecosystem, from the perspective of your
+specification?
+
+(Measuring the carbon footprint of a particular technology can be challenging;
+what are the main things you would need to think about if someone was going to
+attempt to do so?)
+
+### What is the expected lifetime of your specification feature(s)?
+
+Once something is added to the web platform it is very difficult to remove it.
+
+Are the features in your specification expected to remain stable and relevant
+for months, years, or decades? What circumstances would result in a need to
+deprecate these features? Do you have a strategy for deprecation, replacement
+or improvement? Remember that you may not have control over deprecating or
+removing a feature.
+
+### Have you completed the [Security & Privacy Self-review Questionnaire](https://www.w3.org/TR/security-privacy-questionnaire/)?
+
+
