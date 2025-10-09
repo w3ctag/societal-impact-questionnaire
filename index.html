@@ -147,6 +147,16 @@ Next think about possible use cases that may be completely different from the
 problems you set out to solve when designing your feature(s). How does the
 threat model change? What unexpected consequences could arise?
 
+<aside class="example" title="Misuse" id="example-misuse">
+
+    Example: A bad actor could implement the [Web Speech
+    API](https://webaudio.github.io/web-speech-api/) in order to eavesdrop
+    on web users. To prevent this, the authors of the spec have included the
+    requirement for user agents to give the web user an obvious
+    indication when audio is being recorded.
+
+</aside>
+
 ### Can users of the Web Platform choose not to use features of your specification? {#opt-out}
 
 What does your specification do from an end-user perspective? What happens if
