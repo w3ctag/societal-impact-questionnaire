@@ -1,0 +1,22 @@
+name: deploy
+
+on:
+  pull_request: {}
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+    - uses: actions/checkout@v4
+    - uses: w3c/spec-prod@v2
+      with:
+        BUILD_FAIL_ON: warning
+        GH_PAGES_BRANCH: main
+        W3C_BUILD_OVERRIDE: |
+          specStatus: DNOTE
+        W3C_ECHIDNA_TOKEN: ${{ secrets.ECHIDNA_TOKEN }}
+        W3C_WG_DECISION_URL: https://lists.w3.org/Archives/Member/tag/2025Oct/0012.html
