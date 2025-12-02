@@ -168,14 +168,16 @@ why.
 
 <aside class="example" title="Excluded Users" id="example-exclusion">
 
-   Example: The [Web GPU specification](https://www.w3.org/TR/webgpu/)
-    provides low-level access to developers, to allow them to render
-    high-performance graphics like advanced 3D-rendering.
-    The GPU for the Web Community Group, have identified that over
-    half a billion users are unable to access WebGPU rendered objects.
-    To address this, the Community Group have proposed an opt-in mechanism
-    to limit the WebGPU features that are incompatible
-    with older devices and graphics APIs.
+Example: The [Web GPU specification](https://www.w3.org/TR/webgpu/)
+provides low-level access to developers, to allow them to render
+high-performance graphics like advanced 3D-rendering.
+The GPU for the Web Community Group, have identified that over
+(half a billion users are unable to access WebGPU rendered objects)[https://github.com/explainers-by-googlers/webgpu-compatibility-mode/blob/main/README.md#user-facing-problem] 
+because older devices lack support for modern graphics APIs.
+To address this, the Community Group have proposed
+[Compatibility Mode](https://www.w3.org/TR/webgpu/#limit-compatibility-mode-default)
+to limit the WebGPU features that are incompatible
+with older devices and graphics APIs.
 
 </aside>
 
