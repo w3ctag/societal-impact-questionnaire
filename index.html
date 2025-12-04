@@ -181,6 +181,21 @@ improve access and inclusivity of these features?
 If certain groups are deliberately excluded from using these features, explain
 why.
 
+<aside class="example" title="Excluded Users" id="example-exclusion">
+
+Example: The [Web GPU specification](https://www.w3.org/TR/webgpu/)
+provides low-level access to developers, to allow them to render
+high-performance graphics like advanced 3D-rendering.
+The GPU for the Web Community Group, have identified that over
+(half a billion users are unable to access WebGPU rendered objects)[https://github.com/explainers-by-googlers/webgpu-compatibility-mode/blob/main/README.md#user-facing-problem] 
+because older devices lack support for modern graphics APIs.
+To address this, the Working Group defined
+the ["compatibility"](https://www.w3.org/TR/webgpu/#feature-level-string-compatibility) feature level
+to limit the WebGPU features that are incompatible
+with older devices and graphics APIs.
+
+</aside>
+
 ### What effect may features of your specification have on minority groups? {#minority-groups}
 
 Minority (underrepresented) or historically disadvantaged groups may be
