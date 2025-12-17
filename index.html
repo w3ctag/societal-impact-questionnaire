@@ -105,7 +105,7 @@ impact, you are not putting people at risk.
 
 <aside class="example" title="Measuring impact" id="example-measuring">
 
-Example: If a local government decides to add separated bicycle lanes and
+If a local government decides to add separated bicycle lanes and
 improved signalling, they should expect increased bicycle use and a reduction in
 collisions involving bicycles. They can measure this by collecting automated,
 non-identified traffic data and by analysing transportation safety statistics,
@@ -181,6 +181,21 @@ improve access and inclusivity of these features?
 If certain groups are deliberately excluded from using these features, explain
 why.
 
+<aside class="example" title="Excluded Users" id="example-exclusion">
+
+The [Web GPU specification](https://www.w3.org/TR/webgpu/)
+provides low-level access to developers, to allow them to render
+high-performance graphics like advanced 3D-rendering.
+The GPU for the Web Community Group, have identified that over
+(half a billion users are unable to access WebGPU rendered objects)[https://github.com/explainers-by-googlers/webgpu-compatibility-mode/blob/main/README.md#user-facing-problem] 
+because older devices lack support for modern graphics APIs.
+To address this, the Working Group defined
+the ["compatibility"](https://www.w3.org/TR/webgpu/#feature-level-string-compatibility) feature level
+to limit the WebGPU features that are incompatible
+with older devices and graphics APIs.
+
+</aside>
+
 ### What effect may features of your specification have on minority groups? {#minority-groups}
 
 Minority (underrepresented) or historically disadvantaged groups may be
@@ -240,7 +255,7 @@ interested in any data you're collecting?
   
 <aside class="example" title="HTTPS and surveillance on the web" id="example-surveillance">
 
-Example: before https was widely deployed governments were documented to be
+Before https was widely deployed governments were documented to be
 pervasively monitoring individuals' web usage.
 
 (Todo: refer to https://www.w3.org/2014/strint/)
