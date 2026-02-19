@@ -218,6 +218,31 @@ society which may be widened (or closed)?
 Think also about the broader ecosystem in which your feature(s) will be
 deployed. What is in place to mitigate negative effects?
 
+### How might features of your specification affect individuals' psychological well-being, including stress, social interactions, or susceptibility to compulsive use? {#well-being}
+
+Web technologies can affect mental and emotional states in ways that are not
+obvious at the specification level but emerge through implementation and
+scale. Consider whether features of your specification could contribute to
+stress, anxiety, or emotional harm. For example, by increasing exposure to
+harassment, enabling manipulative design patterns, or encouraging compulsive
+use. Could the feature undermine a person's sense of agency, increase social
+pressure, or cause harm to individuals or bystanders?
+
+Consider also how the feature interacts with others. A capability that appears
+neutral in isolation may contribute to harmful patterns when combined with
+other mechanisms. What safeguards or controls does your specification provide
+to help implementors or individuals protect well-being?
+
+<aside class="example" title="Notifications and engagement patterns" id="example-interruption-compulsive-use">
+
+The [Notifications API](https://notifications.spec.whatwg.org/) enables
+timely, useful alerts, but at scale its deployment has been associated with
+interruption-driven engagement tactics that can contribute to stress and
+compulsive checking behaviour in some contexts.
+
+</aside>
+
+
 ### What are the power dynamics at play in implementations of your specification? {#power-dynamics}
 
 As a result of these features, explain which parties are granted additional
