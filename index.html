@@ -224,21 +224,25 @@ Web technologies can affect mental and emotional states in ways that are not
 obvious at the specification level but emerge through implementation and
 scale. Consider whether features of your specification could contribute to
 stress, anxiety, or emotional harm. For example, by increasing exposure to
-harassment, enabling manipulative design patterns, or encouraging compulsive
-use. Could the feature undermine a person's sense of agency, increase social
-pressure, or cause harm to individuals or bystanders?
+harassment, enabling manipulative design patterns, or providing primitives
+that implementations have used in ways that work against people.
 
-Consider also how the feature interacts with others. A capability that appears
-neutral in isolation may contribute to harmful patterns when combined with
-other mechanisms. What safeguards or controls does your specification provide
-to help implementors or individuals protect well-being?
+A feature that seems neutral in isolation may contribute to harmful patterns
+in combination with others. Does your specification provide controls such as
+permission models, rate limits, or opt-out affordances to help implementors
+protect people's well-being? There is a growing body of research on how web
+technologies contribute to these effects at scale, covering
+[internet use](https://en.wikipedia.org/wiki/Internet_addiction_disorder),
+[social media use](https://en.wikipedia.org/wiki/Problematic_social_media_use),
+and [surveillance capitalism](https://en.wikipedia.org/wiki/Surveillance_capitalism).
 
-<aside class="example" title="Notifications and engagement patterns" id="example-interruption-compulsive-use">
+<aside class="example" title="Spec primitives and application-layer misuse" id="example-primitive-misuse">
 
 The [Notifications API](https://notifications.spec.whatwg.org/) enables
-timely, useful alerts, but at scale its deployment has been associated with
-interruption-driven engagement tactics that can contribute to stress and
-compulsive checking behaviour in some contexts.
+timely, useful alerts. At scale, its primitives have been used by
+applications to drive interruption based engagement that can undermine
+people's interests. Consider whether your specification exposes similar
+primitives, and whether it provides controls to mitigate misuse.
 
 </aside>
 
