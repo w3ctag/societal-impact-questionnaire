@@ -135,6 +135,21 @@ In this context, if access to the features in your specification become
 unavailable, what problems might this cause to end users? What mitigations do
 you have in place?
 
+<aside class="example" title="Becoming critical" id="example-critical-part">
+
+[WebRTC](https://www.w3.org/TR/webrtc/) was designed to enable
+real-time audio and video communication between browsers.
+It has since become a critical part of
+remote healthcare appointments, schooling, court hearings, and job interviews.
+When it is unavailable to someone, because
+their device is old, their connection is poor, or their network blocks the traffic,
+they lose access to healthcare, education, or justice.
+Specifications can anticipate this:
+WebRTC's connection establishment allows media to be relayed over the same ports as ordinary web traffic,
+so that calls can survive restrictive networks.
+
+</aside>
+
 ### What kinds of activities could your specification become a part of that you are not designing for? {#unexpected-use}
 
 Are there other use cases that can be met by your feature(s) that were not
