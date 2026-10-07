@@ -179,7 +179,7 @@ Next think about possible use cases that may be completely different from the
 problems you set out to solve when designing your feature(s). How does the
 threat model change? What unexpected consequences could arise?
 
-<aside class="example" title="Intentional Misuse" id="example-misuse-1">
+<aside class="example" title="Intentional Misuse" id="example-intentional-misuse">
 
 A bad actor could use the [Compute Pressure
 API](https://www.w3.org/TR/compute-pressure/) to join web user identities across
@@ -189,7 +189,7 @@ techniques to prevent side-channel information leaks.
 
 </aside>
 
-<aside class="example" title="Accidental Misuse" id="example-misuse-2">
+<aside class="example" title="Accidental Misuse" id="example-accidental-misuse">
 
 Originally the [Referrer Policy](https://www.w3.org/TR/referrer-policy/) specification had `no-referrer-when-downgrade` as the default behavior.
 `no-referrer-when-downgrade` sends the full URL to all destinations except on an HTTPS-to-HTTP request,
