@@ -171,9 +171,9 @@ inject malware, steal information, game people's consent, or surveil people.
 Accidents can also happen, well-meaning actors could accidentally leak people's
 data or spread malware.
 
-How can your users be intentionally or accidentally exploited?
-What mitigations you have in place in your specification? What mitigations are
-in place in the wider ecosystem.
+How can people using your feature(s) be intentionally or accidentally exploited?
+What mitigations do you have in place in your specification?
+What mitigations are in place in the wider ecosystem?
 
 Next think about possible use cases that may be completely different from the
 problems you set out to solve when designing your feature(s). How does the
@@ -191,14 +191,11 @@ techniques to prevent side-channel information leaks.
 
 <aside class="example" title="Accidental Misuse" id="example-misuse-2">
 
-    Originally the Referrer-Policy specification had `no-referrer-when-downgrade`
-    as the default behavior. `no-referrer-when-downgrade` sends the full URL
-    to all destinations except on an HTTPS-to-HTTP request, which allowed
-    developers to accidentally send personally identifying information through
-    the referrer policy. This is what happened in the 2015 [HealthCare.gov leak]
-    (https://www.eff.org/deeplinks/2015/01/healthcare.gov-sends-personal-data).
-    The specification was updated to make `strict-origin-when-cross-origin` the
-    default to make it harder to accidentally leak site visitor data.
+Originally the [Referrer Policy](https://www.w3.org/TR/referrer-policy/) specification had `no-referrer-when-downgrade` as the default behavior.
+`no-referrer-when-downgrade` sends the full URL to all destinations except on an HTTPS-to-HTTP request,
+which allowed developers to accidentally send personally identifying information in the `Referer` header.
+This is what happened in the 2015 [HealthCare.gov leak](https://www.eff.org/deeplinks/2015/01/healthcare.gov-sends-personal-data).
+The specification was updated to make `strict-origin-when-cross-origin` the default, making it harder to accidentally leak site visitor data.
 
 </aside>
 
