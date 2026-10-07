@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en" dir="ltr"><head>
 <meta charset="utf-8">
-<meta name="generator" content="ReSpec 35.8.0">
+<meta name="generator" content="ReSpec 37.4.1">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <style>
 span.example-title{text-transform:none}
@@ -23,6 +23,7 @@ dfn{cursor:pointer}
 .dfn-panel .marker{padding:.1em;margin-left:.5em;border-radius:.2em;text-align:center;white-space:nowrap;font-size:90%;color:#040b1c}
 .dfn-panel .marker.dfn-exported{background:#d1edfd;box-shadow:0 0 0 .125em #1ca5f940}
 .dfn-panel .marker.idl-block{background:#8ccbf2;box-shadow:0 0 0 .125em #0670b161}
+.dfn-panel .marker.cddl-block{background:#8ccbf2;box-shadow:0 0 0 .125em #0670b161}
 .dfn-panel a:not(:hover){text-decoration:none!important;border-bottom:none!important}
 .dfn-panel a[href]:hover{border-bottom-width:1px}
 .dfn-panel ul{padding:0}
@@ -48,13 +49,17 @@ a.bibref{text-decoration:none}
 .respec-offending-element{background:url(data:image/gif;base64,R0lGODdhBAADAPEAANv///8AAP///wAAACwAAAAABAADAEACBZQjmIAFADs=) bottom repeat-x}
 }
 #references :target{background:#eaf3ff;animation:pop .4s ease-in-out 0s 1}
+@media (prefers-color-scheme:dark){
+#references :target{background:color-mix(in srgb, #eaf3ff 15%, transparent)}
+}
+body:has(input[name=color-scheme][value=dark]:checked) #references :target{background:color-mix(in srgb, #eaf3ff 15%, transparent)}
 cite .bibref{font-style:italic}
 a[href].orcid{padding-left:4px;padding-right:4px}
 a[href].orcid>svg{margin-bottom:-2px}
 ol.tof,ul.tof{list-style:none outside none}
 .caption{margin-top:.5em;font-style:italic}
 #issue-summary>ul{column-count:2}
-#issue-summary li{list-style:none;display:inline-block}
+#issue-summary li{list-style:none}
 details.respec-tests-details{margin-left:1em;display:inline-block;vertical-align:top}
 details.respec-tests-details>*{padding-right:2em}
 details.respec-tests-details[open]{z-index:999999;position:absolute;border:thin solid #cad3e2;border-radius:.3em;background-color:#fff;padding-bottom:.5em}
@@ -64,22 +69,24 @@ details.respec-tests-details>li{padding-left:1em}
 .self-link:hover{opacity:1;text-decoration:none;background-color:transparent}
 aside.example .marker>a.self-link{color:inherit}
 .header-wrapper{display:flex;align-items:baseline}
-:is(h2,h3,h4,h5,h6):not(#toc>h2,#abstract>h2,#sotd>h2,.head>h2){position:relative;left:-.5em}
-:is(h2,h3,h4,h5,h6):not(#toch2)+a.self-link{color:inherit;order:-1;position:relative;left:-1.1em;font-size:1rem;opacity:.5}
-:is(h2,h3,h4,h5,h6)+a.self-link::before{content:"§";text-decoration:none;color:var(--heading-text)}
+:is(h2,h3,h4,h5,h6):not(:where(#toc>h2,#abstract>h2,#sotd>h2,.head>h2)):has(+a.self-link){position:relative;left:-.5em}
+:is(h2,h3,h4,h5,h6):not(:where(#toch2))+a.self-link{color:inherit;order:-1;position:relative;left:-1.1em;font-size:1rem;opacity:.8;text-decoration:none}
+:is(h2,h3,h4,h5,h6)+a.self-link::before{content:"§"}
 :is(h2,h3)+a.self-link{top:-.2em}
-:is(h4,h5,h6)+a.self-link::before{color:#000}
+:is(h2,h3)+a.self-link::before{color:var(--heading-text)}
 @media (max-width:767px){
 dd{margin-left:0}
 }
 @media print{
 .removeOnSave{display:none}
 }
+body:has(input[name=color-scheme][value=light]:checked),head:not(:has(meta[name=color-scheme][content~=dark]))+body{color-scheme:light}
+body:has(input[name=color-scheme][value=dark]:checked){color-scheme:dark}
 </style>
 
 
 <meta name="color-scheme" content="light">
-<meta name="revision" content="9c3867d4a042cc97da20a695b8999ac2e3d568aa">
+<meta name="revision" content="7c1a2d3cdd2ca67925c43aec55c18b5996830c83">
 <meta name="description" content="The web should be a platform that helps people and provides a net positive
 social benefit. As we continue to evolve the web platform, we must consider
 the consequences of our work. This document sets out questions for
@@ -105,7 +112,7 @@ var.respec-hl{background:0 0;color:#000;box-shadow:unset}
 }
 </style>
 <style>
-var{position:relative;cursor:pointer}
+var[data-type]{position:relative}
 var[data-type]::after,var[data-type]::before{position:absolute;left:50%;top:-6px;opacity:0;transition:opacity .4s;pointer-events:none}
 var[data-type]::before{content:"";transform:translateX(-50%);border-width:4px 6px 0 6px;border-style:solid;border-color:transparent;border-top-color:#222}
 var[data-type]::after{content:attr(data-type);transform:translateX(-50%) translateY(-100%);background:#222;text-align:center;font-family:"Dank Mono","Fira Code",monospace;font-style:normal;padding:6px;border-radius:3px;color:#daca88;text-indent:0;font-weight:400}
@@ -149,43 +156,46 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   "wgPublicList": "www-tag",
   "github": "w3ctag/societal-impact-questionnaire",
   "format": "markdown",
-  "gitRevision": "9c3867d4a042cc97da20a695b8999ac2e3d568aa",
-  "publishISODate": "2026-03-19T00:00:00.000Z",
-  "generatedSubtitle": "W3C Editor's Draft 19 March 2026"
+  "gitRevision": "7c1a2d3cdd2ca67925c43aec55c18b5996830c83",
+  "publishISODate": "2026-10-07T00:00:00.000Z",
+  "generatedSubtitle": "W3C Editor's Draft 07 October 2026"
 }</script>
-<link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/W3C-ED"></head><body class="informative h-entry"><div class="head">
+<link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/W3C-ED">
+<link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/dark.css" disabled=""></head><body class="informative h-entry"><div class="head">
     <p class="logos"><a class="logo" href="https://www.w3.org/"><img crossorigin="" alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width="72">
   </a></p>
     <h1 id="title" class="title">Self-Review Questionnaire: Societal Impact</h1> 
-    <p id="w3c-state"><a href="https://www.w3.org/standards/types#ED">W3C Editor's Draft</a> <time class="dt-published" datetime="2026-03-19">19 March 2026</time></p>
+    <p id="w3c-state"><a href="https://www.w3.org/standards/types#ED">W3C Editor's Draft</a> <time class="dt-published" datetime="2026-10-07">07 October 2026</time></p>
     <details open="">
       <summary>More details about this document</summary>
       <dl>
         <dt>This version:</dt><dd>
-                <a class="u-url" href="https://w3ctag.github.io/societal-impact-questionnaire/">https://w3ctag.github.io/societal-impact-questionnaire/</a>
-              </dd>
+                  <a class="u-url" href="https://w3ctag.github.io/societal-impact-questionnaire/">https://w3ctag.github.io/societal-impact-questionnaire/</a>
+                </dd>
         <dt>Latest published version:</dt><dd>
-                <a href="https://www.w3.org/TR/societal-impact-questionnaire/">https://www.w3.org/TR/societal-impact-questionnaire/</a>
-              </dd>
+                  <a href="https://www.w3.org/TR/societal-impact-questionnaire/">https://www.w3.org/TR/societal-impact-questionnaire/</a>
+                </dd>
         <dt>Latest editor's draft:</dt><dd><a href="https://w3ctag.github.io/societal-impact-questionnaire/">https://w3ctag.github.io/societal-impact-questionnaire/</a></dd>
         <dt>History:</dt><dd>
-                    <a href="https://www.w3.org/standards/history/societal-impact-questionnaire/">https://www.w3.org/standards/history/societal-impact-questionnaire/</a>
-                  </dd><dd>
-                    <a href="https://github.com/w3ctag/societal-impact-questionnaire/commits/">Commit history</a>
-                  </dd>
+                        <a href="https://www.w3.org/standards/history/societal-impact-questionnaire/">https://www.w3.org/standards/history/societal-impact-questionnaire/</a>
+                      </dd><dd>
+                        <a href="https://github.com/w3ctag/societal-impact-questionnaire/commits/">Commit history</a>
+                      </dd>
         
         
         
         
         
-        <dt>Editors:</dt><dd class="editor p-author h-card vcard" data-editor-id="46140">
+        <dt>
+                  Editors:
+                </dt><dd class="editor p-author h-card vcard" data-editor-id="46140">
     <a class="u-url url p-name fn" href="https://csarven.ca/">Sarven Capadisli</a> (<span class="p-org org h-org">Invited Expert</span>)
   </dd><dd class="editor p-author h-card vcard" data-editor-id="127012">
     <a class="u-url url p-name fn" href="https://lolaslab.co/">Lola Odelola</a> (<span class="p-org org h-org">Invited Expert</span>)
   </dd>
         <dt>
-                Former editors:
-              </dt><dd class="editor p-author h-card vcard" data-editor-id="69000">
+                  Former editors:
+                </dt><dd class="editor p-author h-card vcard" data-editor-id="69000">
     <a class="u-url url p-name fn" href="https://rhiaro.co.uk/">Amy Guy</a> (<a class="p-org org h-org" href="https://digitalbazaar.com/">Digital Bazaar</a>)
   </dd><dd class="editor p-author h-card vcard" data-editor-id="495082">
     <a class="u-url url p-name fn" href="https://www.standblog.org/">Tristan Nitot</a> (<span class="p-org org h-org">Invited Expert</span>)
@@ -215,30 +225,23 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     <a rel="license" href="https://www.w3.org/copyright/software-license-2023/" title="W3C Software and Document Notice and License">permissive document license</a> rules apply.
   </p>
     <hr title="Separator for header">
-  </div><section id="abstract" class="introductory"><h2>Abstract</h2>
-
-
-<p>The web should be a platform that helps people and provides a net positive
+  </div><section id="abstract" class="introductory"><h2>Abstract</h2><p>The web should be a platform that helps people and provides a net positive
 social benefit. As we continue to evolve the web platform, we must consider
 the consequences of our work. This document sets out questions for
 specification authors, reviewers, and implementors of new web platform
 technologies to answer as part of a critical assessment of the impact of their
 work.</p>
-</section>
-
-<section id="sotd" class="introductory"><h2>Status of This Document</h2><p><em>This section describes the status of this
+</section><section id="sotd" class="introductory"><h2>Status of This Document</h2><p><em>This section describes the status of this
       document at the time of its publication. A list of current <abbr title="World Wide Web Consortium">W3C</abbr>
       publications and the latest revision of this technical report can be found
       in the
-      <a href="https://www.w3.org/TR/"><abbr title="World Wide Web Consortium">W3C</abbr> standards and drafts index</a>.</em></p>
-
-
-<p>This document is an early draft and does not reflect the consensus of the TAG.</p>
+      <a href="https://www.w3.org/TR/"><abbr title="World Wide Web Consortium">W3C</abbr> standards and drafts index</a>.</em></p><p>This document is an early draft and does not reflect the consensus of the TAG.</p>
 <p>
     This document was published by the <a href="https://www.w3.org/groups/other/tag">Technical Architecture Group</a> as
     an Editor's Draft. 
-  </p><p>Publication as an Editor's Draft does not
-  imply endorsement by <abbr title="World Wide Web Consortium">W3C</abbr> and its Members. </p><p>
+  </p><p>Publication as
+  an Editor's Draft does not imply endorsement
+  by <abbr title="World Wide Web Consortium">W3C</abbr> and its Members. </p><p>
     This is a draft document and may be updated, replaced, or obsoleted by other
     documents at any time. It is inappropriate to cite this document as other
     than a work in progress.
@@ -251,22 +254,20 @@ work.</p>
           Policy</a>.
       
     
-                <abbr title="World Wide Web Consortium">W3C</abbr> maintains a
-                <a rel="disclosure" href="">public list of any patent disclosures</a>
-          made in connection with the deliverables of
-          the group; that page also includes
-          instructions for disclosing a patent. An individual who has actual
-          knowledge of a patent that the individual believes contains
-          <a href="https://www.w3.org/policies/patent-policy/#def-essential">Essential Claim(s)</a>
-          must disclose the information in accordance with
-          <a href="https://www.w3.org/policies/patent-policy/#sec-Disclosure">section 6 of the <abbr title="World Wide Web Consortium">W3C</abbr> Patent Policy</a>.
-        
+                    <abbr title="World Wide Web Consortium">W3C</abbr> maintains a
+                    public list of any patent disclosures
+            made in connection with the deliverables of
+            the group; that page also includes
+            instructions for disclosing a patent. An individual who has actual
+            knowledge of a patent that the individual believes contains
+            <a href="https://www.w3.org/policies/patent-policy/#def-essential">Essential Claim(s)</a>
+            must disclose the information in accordance with
+            <a href="https://www.w3.org/policies/patent-policy/#sec-Disclosure">section 6 of the <abbr title="World Wide Web Consortium">W3C</abbr> Patent Policy</a>.
+          
   </p><p>
-                      This document is governed by the
-                      <a id="w3c_process_revision" href="https://www.w3.org/policies/process/20250818/">18 August 2025 <abbr title="World Wide Web Consortium">W3C</abbr> Process Document</a>.
-                    </p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#intro"><bdi class="secno">1. </bdi>Introduction</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#purpose"><bdi class="secno">1.1 </bdi>The purpose of this document</a></li></ol></li><li class="tocline"><a class="tocxref" href="#questions"><bdi class="secno">2. </bdi>Questions to consider</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#critical-part"><bdi class="secno">2.1 </bdi>What kinds of activities do you anticipate your specification becoming a critical part of?</a></li><li class="tocline"><a class="tocxref" href="#unexpected-use"><bdi class="secno">2.2 </bdi>What kinds of activities could your specification become a part of that you are not designing for?</a></li><li class="tocline"><a class="tocxref" href="#use-case-diversity"><bdi class="secno">2.3 </bdi>Have you considered whether your use cases are sufficiently diverse?</a></li><li class="tocline"><a class="tocxref" href="#misuse"><bdi class="secno">2.4 </bdi>What risks do you see in features of your specification being misused, or used differently from how you intended?</a></li><li class="tocline"><a class="tocxref" href="#opt-out"><bdi class="secno">2.5 </bdi>Can users of the Web Platform choose not to use features of your specification?</a></li><li class="tocline"><a class="tocxref" href="#excluded"><bdi class="secno">2.6 </bdi>What groups of people are excluded from using features of your specification?</a></li><li class="tocline"><a class="tocxref" href="#minority-groups"><bdi class="secno">2.7 </bdi>What effect may features of your specification have on minority groups?</a></li><li class="tocline"><a class="tocxref" href="#well-being"><bdi class="secno">2.8 </bdi>How might features of your specification affect individuals' psychological well-being, including stress, social interactions, or susceptibility to compulsive use?</a></li><li class="tocline"><a class="tocxref" href="#power-dynamics"><bdi class="secno">2.9 </bdi>What are the power dynamics at play in implementations of your specification?</a></li><li class="tocline"><a class="tocxref" href="#centralization"><bdi class="secno">2.10 </bdi>What points of centralization does your feature bring to the web platform?</a></li><li class="tocline"><a class="tocxref" href="#surveillance"><bdi class="secno">2.11 </bdi>How does your new technology open up ways in which people might be surveilled?</a></li><li class="tocline"><a class="tocxref" href="#environment"><bdi class="secno">2.12 </bdi>To what extent do the features in your specification impact the natural environment?</a></li><li class="tocline"><a class="tocxref" href="#lifetime"><bdi class="secno">2.13 </bdi>What is the expected lifetime of your specification feature(s)?</a></li><li class="tocline"><a class="tocxref" href="#security-and-privacy"><bdi class="secno">2.14 </bdi>Have you completed the <span class="formerLink">Security &amp; Privacy Self-review Questionnaire</span>?</a></li></ol></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">A. </bdi>References</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#informative-references"><bdi class="secno">A.1 </bdi>Informative references</a></li></ol></li></ol></nav>
-
-<section id="introduction"><div class="header-wrapper"><h2 id="intro"><bdi class="secno">1. </bdi>Introduction</h2><a class="self-link" href="#intro" aria-label="Permalink for Section 1."></a></div><p>The web platform has a broad global reach, and is used for a huge variety of
+                          This document is governed by the
+                          <a id="w3c_process_revision" href="https://www.w3.org/policies/process/20250818/">18 August 2025 <abbr title="World Wide Web Consortium">W3C</abbr> Process Document</a>.
+                        </p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#intro"><bdi class="secno">1. </bdi>Introduction</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#purpose"><bdi class="secno">1.1 </bdi>The purpose of this document</a></li></ol></li><li class="tocline"><a class="tocxref" href="#questions"><bdi class="secno">2. </bdi>Questions to consider</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#critical-part"><bdi class="secno">2.1 </bdi>What kinds of activities do you anticipate your specification becoming a critical part of?</a></li><li class="tocline"><a class="tocxref" href="#unexpected-use"><bdi class="secno">2.2 </bdi>What kinds of activities could your specification become a part of that you are not designing for?</a></li><li class="tocline"><a class="tocxref" href="#use-case-diversity"><bdi class="secno">2.3 </bdi>Have you considered whether your use cases are sufficiently diverse?</a></li><li class="tocline"><a class="tocxref" href="#misuse"><bdi class="secno">2.4 </bdi>What risks do you see in features of your specification being misused, or used differently from how you intended?</a></li><li class="tocline"><a class="tocxref" href="#opt-out"><bdi class="secno">2.5 </bdi>Can users of the Web Platform choose not to use features of your specification?</a></li><li class="tocline"><a class="tocxref" href="#excluded"><bdi class="secno">2.6 </bdi>What groups of people are excluded from using features of your specification?</a></li><li class="tocline"><a class="tocxref" href="#minority-groups"><bdi class="secno">2.7 </bdi>What effect may features of your specification have on minority groups?</a></li><li class="tocline"><a class="tocxref" href="#well-being"><bdi class="secno">2.8 </bdi>How might features of your specification affect individuals' psychological well-being, including stress, social interactions, or susceptibility to compulsive use?</a></li><li class="tocline"><a class="tocxref" href="#power-dynamics"><bdi class="secno">2.9 </bdi>What are the power dynamics at play in implementations of your specification?</a></li><li class="tocline"><a class="tocxref" href="#centralization"><bdi class="secno">2.10 </bdi>What points of centralization does your feature bring to the web platform?</a></li><li class="tocline"><a class="tocxref" href="#surveillance"><bdi class="secno">2.11 </bdi>How does your new technology open up ways in which people might be surveilled?</a></li><li class="tocline"><a class="tocxref" href="#environment"><bdi class="secno">2.12 </bdi>To what extent do the features in your specification impact the natural environment?</a></li><li class="tocline"><a class="tocxref" href="#lifetime"><bdi class="secno">2.13 </bdi>What is the expected lifetime of your specification feature(s)?</a></li></ol></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">A. </bdi>References</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#informative-references"><bdi class="secno">A.1 </bdi>Informative references</a></li></ol></li></ol></nav><section id="introduction"><div class="header-wrapper"><h2 id="intro"><bdi class="secno">1. </bdi>Introduction</h2><a class="self-link" href="#intro" aria-label="Permalink for Section 1."></a></div><p>The web platform has a broad global reach, and is used for a huge variety of
 different purposes. The architecture of the web platform increases in
 complexity with each new feature added, and it is difficult to predict how a
 change in one place may impact other feature designers or end users in
@@ -305,18 +306,14 @@ itself can have a negative societal impact; ensure that in measuring your
 impact, you are not putting people at risk.</p>
 <aside class="example" id="example-measuring"><div class="marker">
     <a class="self-link" href="#example-measuring">Example<bdi> 1</bdi></a><span class="example-title">: Measuring impact</span>
-  </div>
-
-<p>If a local government decides to add separated bicycle lanes and
+  </div><p>If a local government decides to add separated bicycle lanes and
 improved signalling, they should expect increased bicycle use and a reduction in
 collisions involving bicycles. They can measure this by collecting automated,
 non-identified traffic data and by analysing transportation safety statistics,
 while being mindful of how such incidents are categorised in official records,
 e.g., misclassified as bicycle accidents instead of automobile accidents or
 grouped under general traffic accidents.</p>
-</aside>
-
-<section id="what-kinds-of-activities-do-you-anticipate-your-specification-becoming-a-critical-part-of"><div class="header-wrapper"><h3 id="critical-part"><bdi class="secno">2.1 </bdi>What kinds of activities do you anticipate your specification becoming a critical part of?</h3><a class="self-link" href="#critical-part" aria-label="Permalink for Section 2.1"></a></div><p>Think about the use cases of stakeholders currently engaged in work on the
+</aside><section id="what-kinds-of-activities-do-you-anticipate-your-specification-becoming-a-critical-part-of"><div class="header-wrapper"><h3 id="critical-part"><bdi class="secno">2.1 </bdi>What kinds of activities do you anticipate your specification becoming a critical part of?</h3><a class="self-link" href="#critical-part" aria-label="Permalink for Section 2.1"></a></div><p>Think about the use cases of stakeholders currently engaged in work on the
 specification, as well as potential implementors in the future. Is this
 something that may be used by citizens as part of their interactions with
 governments? Will it be used in workplaces or schools? Is it more applicable
@@ -359,16 +356,12 @@ problems you set out to solve when designing your feature(s). How does the
 threat model change? What unexpected consequences could arise?</p>
 <aside class="example" id="example-misuse"><div class="marker">
     <a class="self-link" href="#example-misuse">Example<bdi> 2</bdi></a><span class="example-title">: Misuse</span>
-  </div>
-
-<p>A bad actor could use the <a href="https://www.w3.org/TR/compute-pressure/">Compute Pressure
+  </div><p>A bad actor could use the <a href="https://www.w3.org/TR/compute-pressure/">Compute Pressure
 API</a> to join web user identities across
 sites. To prevent this, the authors of the spec have included the requirement
 for user agents to minimize data exposure and implement rate obfuscation
 techniques to prevent side-channel information leaks.</p>
-</aside>
-
-</section><section id="can-users-of-the-web-platform-choose-not-to-use-features-of-your-specification"><div class="header-wrapper"><h3 id="opt-out"><bdi class="secno">2.5 </bdi>Can users of the Web Platform choose not to use features of your specification?</h3><a class="self-link" href="#opt-out" aria-label="Permalink for Section 2.5"></a></div><p>What does your specification do from an end-user perspective? What happens if
+</aside></section><section id="can-users-of-the-web-platform-choose-not-to-use-features-of-your-specification"><div class="header-wrapper"><h3 id="opt-out"><bdi class="secno">2.5 </bdi>Can users of the Web Platform choose not to use features of your specification?</h3><a class="self-link" href="#opt-out" aria-label="Permalink for Section 2.5"></a></div><p>What does your specification do from an end-user perspective? What happens if
 the end-user doesn't want that? How easy is it for someone to opt out of these
 features? What might they lose? Are end-users able to give meaningful consent
 to using these features? In what ways can people be coerced into using these
@@ -382,9 +375,7 @@ improve access and inclusivity of these features?</p>
 why.</p>
 <aside class="example" id="example-exclusion"><div class="marker">
     <a class="self-link" href="#example-exclusion">Example<bdi> 3</bdi></a><span class="example-title">: Excluded Users</span>
-  </div>
-
-<p>The <a href="https://www.w3.org/TR/webgpu/">Web GPU specification</a>
+  </div><p>The <a href="https://www.w3.org/TR/webgpu/">Web GPU specification</a>
 provides low-level access to developers, to allow them to render
 high-performance graphics like advanced 3D-rendering.
 The GPU for the Web Community Group, have identified that over
@@ -394,9 +385,7 @@ To address this, the Working Group defined
 the <a href="https://www.w3.org/TR/webgpu/#feature-level-string-compatibility">"compatibility"</a> feature level
 to limit the WebGPU features that are incompatible
 with older devices and graphics APIs.</p>
-</aside>
-
-</section><section id="what-effect-may-features-of-your-specification-have-on-minority-groups"><div class="header-wrapper"><h3 id="minority-groups"><bdi class="secno">2.7 </bdi>What effect may features of your specification have on minority groups?</h3><a class="self-link" href="#minority-groups" aria-label="Permalink for Section 2.7"></a></div><p>Minority (underrepresented) or historically disadvantaged groups may be
+</aside></section><section id="what-effect-may-features-of-your-specification-have-on-minority-groups"><div class="header-wrapper"><h3 id="minority-groups"><bdi class="secno">2.7 </bdi>What effect may features of your specification have on minority groups?</h3><a class="self-link" href="#minority-groups" aria-label="Permalink for Section 2.7"></a></div><p>Minority (underrepresented) or historically disadvantaged groups may be
 different depending on culture, location, or other context. Think about parts
 of society who may have trouble getting their voice heard, or their needs
 taken seriously; who have faced prejudice and discrimination in the past, or
@@ -423,17 +412,12 @@ technologies contribute to these effects at scale, covering
 and <a href="https://en.wikipedia.org/wiki/Surveillance_capitalism">surveillance capitalism</a>.</p>
 <aside class="example" id="example-primitive-misuse"><div class="marker">
     <a class="self-link" href="#example-primitive-misuse">Example<bdi> 4</bdi></a><span class="example-title">: Spec primitives and application-layer misuse</span>
-  </div>
-
-<p>The <a href="https://notifications.spec.whatwg.org/">Notifications API</a> enables
+  </div><p>The <a href="https://notifications.spec.whatwg.org/">Notifications API</a> enables
 timely, useful alerts. At scale, its primitives have been used by
 applications to drive interruption based engagement that can undermine
 people's interests. Consider whether your specification exposes similar
 primitives, and whether it provides controls to mitigate misuse.</p>
-</aside>
-
-
-</section><section id="what-are-the-power-dynamics-at-play-in-implementations-of-your-specification"><div class="header-wrapper"><h3 id="power-dynamics"><bdi class="secno">2.9 </bdi>What are the power dynamics at play in implementations of your specification?</h3><a class="self-link" href="#power-dynamics" aria-label="Permalink for Section 2.9"></a></div><p>As a result of these features, explain which parties are granted additional
+</aside></section><section id="what-are-the-power-dynamics-at-play-in-implementations-of-your-specification"><div class="header-wrapper"><h3 id="power-dynamics"><bdi class="secno">2.9 </bdi>What are the power dynamics at play in implementations of your specification?</h3><a class="self-link" href="#power-dynamics" aria-label="Permalink for Section 2.9"></a></div><p>As a result of these features, explain which parties are granted additional
 power, and which have power removed, and to what extent. In a worst case
 scenario, what power imbalances are exacerbated as a result of implementations
 of your specification? Parties to consider include the User Agent, device and
@@ -460,17 +444,29 @@ they know and how they are able to choose to turn tracking on or off? Could your
 provoke self-censorship, or create a <a href="https://en.wikipedia.org/wiki/Chilling_effect">chilling effect</a> on society? How are
 bystanders (people who are not directly using the technology) affected? What
 societal factors might increase the risk of surveillance? Who else might be
-interested in any data you're collecting?</p>
+interested in any data you're collecting?
+What could be inferred from the data your feature exposes,
+and can people know about or challenge those inferences?</p>
 <aside class="example" id="example-surveillance"><div class="marker">
     <a class="self-link" href="#example-surveillance">Example<bdi> 5</bdi></a><span class="example-title">: HTTPS and surveillance on the web</span>
-  </div>
-
-<p>Before https was widely deployed governments were documented to be
+  </div><p>Before https was widely deployed governments were documented to be
 pervasively monitoring individuals' web usage.</p>
 <p>(Todo: refer to <a href="https://www.w3.org/2014/strint/">https://www.w3.org/2014/strint/</a>)</p>
-</aside>
-
-</section><section id="to-what-extent-do-the-features-in-your-specification-impact-the-natural-environment"><div class="header-wrapper"><h3 id="environment"><bdi class="secno">2.12 </bdi>To what extent do the features in your specification impact the natural environment?</h3><a class="self-link" href="#environment" aria-label="Permalink for Section 2.12"></a></div><p>Think broadly about how computing technologies may result in carbon
+</aside><aside class="example" id="example-inference-at-scale"><div class="marker">
+    <a class="self-link" href="#example-inference-at-scale">Example<bdi> 6</bdi></a><span class="example-title">: Inference at scale</span>
+  </div><p>Machine learning changes what data can reveal, at global scale.
+Information that seems harmless when a feature is designed,
+such as sensor readings, typing patterns, or viewing history,
+can later be combined to
+<a href="https://www.ohchr.org/en/documents/thematic-reports/ahrc4831-right-privacy-digital-age-report-united-nations-high">infer sensitive details about a person</a>,
+including their health, emotional state, or identity.
+The more of a person's activity flows through a system,
+the more there is to infer from.
+Inference at population scale is also an instrument of power:
+detailed knowledge of how a society behaves confers control over it,
+whoever holds that knowledge,
+a company, a government, or one acting for the other.</p>
+</aside></section><section id="to-what-extent-do-the-features-in-your-specification-impact-the-natural-environment"><div class="header-wrapper"><h3 id="environment"><bdi class="secno">2.12 </bdi>To what extent do the features in your specification impact the natural environment?</h3><a class="self-link" href="#environment" aria-label="Permalink for Section 2.12"></a></div><p>Think broadly about how computing technologies may result in carbon
 emissions or electronic waste, and the effect that implementations of your
 features may have. Measuring the carbon footprint of a particular technology
 can be challenging; what are the main things you would need to highlight
@@ -494,7 +490,7 @@ for months, years, or decades? What circumstances would result in a need to
 deprecate these features? Do you have a strategy for deprecation, replacement
 or improvement? Remember that you may not have control over deprecating or
 removing a feature.</p>
-</section><section id="have-you-completed-the-security-privacy-self-review-questionnaire"><div class="header-wrapper"><h3 id="security-and-privacy"><bdi class="secno">2.14 </bdi>Have you completed the <a href="https://www.w3.org/TR/security-privacy-questionnaire/">Security &amp; Privacy Self-review Questionnaire</a>?</h3><a class="self-link" href="#security-and-privacy" aria-label="Permalink for Section 2.14"></a></div></section></section><section id="references" class="appendix"><div class="header-wrapper"><h2 id="a-references"><bdi class="secno">A. </bdi>References</h2><a class="self-link" href="#references" aria-label="Permalink for Appendix A."></a></div><section id="informative-references"><div class="header-wrapper"><h3 id="a-1-informative-references"><bdi class="secno">A.1 </bdi>Informative references</h3><a class="self-link" href="#informative-references" aria-label="Permalink for Appendix A.1"></a></div>
+</section></section><section id="references" class="appendix"><div class="header-wrapper"><h2 id="a-references"><bdi class="secno">A. </bdi>References</h2><a class="self-link" href="#references" aria-label="Permalink for Appendix A."></a></div><section id="informative-references"><div class="header-wrapper"><h3 id="a-1-informative-references"><bdi class="secno">A.1 </bdi>Informative references</h3><a class="self-link" href="#informative-references" aria-label="Permalink for Appendix A.1"></a></div>
     
     <dl class="bibliography"><dt id="bib-ethical-web-principles">[ethical-web-principles]</dt><dd>
       <a href="https://www.w3.org/TR/ethical-web-principles/"><cite>Ethical Web Principles</cite></a>. Daniel Appelquist; Hadley Beeman; Amy Guy.  W3C. 12 December 2024. STMT. URL: <a href="https://www.w3.org/TR/ethical-web-principles/">https://www.w3.org/TR/ethical-web-principles/</a>
@@ -516,9 +512,12 @@ function setupVarHighlighter() {
     .forEach(varElem => varElem.addEventListener("click", highlightListener));
 }
 
+/**
+ * @param {MouseEvent} ev
+ */
 function highlightListener(ev) {
   ev.stopPropagation();
-  const { target: varElem } = ev;
+  const varElem = /** @type {HTMLElement} */ (ev.target);
   const hightligtedElems = highlightVars(varElem);
   const resetListener = () => {
     const hlColor = getHighlightColor(varElem);
@@ -541,6 +540,9 @@ const HL_COLORS = new Map([
   ["respec-hl-c7", true],
 ]);
 
+/**
+ * @param {HTMLElement} target
+ */
 function getHighlightColor(target) {
   // return current colors if applicable
   const { value } = target.classList;
@@ -555,9 +557,15 @@ function getHighlightColor(target) {
   return [...HL_COLORS.keys()].find(c => HL_COLORS.get(c)) || "respec-hl-c1";
 }
 
+/**
+ * @param {HTMLElement} varElem
+ */
 function highlightVars(varElem) {
   const textContent = norm(varElem.textContent);
-  const parent = varElem.closest(".algorithm, section");
+  const parent = /** @type {HTMLElement} */ (
+    varElem.closest(".algorithm, section")
+  );
+  if (!parent) return [];
   const highlightColor = getHighlightColor(varElem);
 
   const varsToHighlight = [...parent.querySelectorAll("var")].filter(
@@ -580,12 +588,20 @@ function highlightVars(varElem) {
   return varsToHighlight;
 }
 
+/**
+ * @param {HTMLElement} el
+ * @param {string} highlightColor
+ */
 function removeHighlight(el, highlightColor) {
   el.classList.remove("respec-hl", highlightColor);
   // clean up empty class attributes so they don't come in export
   if (!el.classList.length) el.removeAttribute("class");
 }
 
+/**
+ * @param {HTMLElement} elem
+ * @param {string} highlightColor
+ */
 function addHighlight(elem, highlightColor) {
   elem.classList.add("respec-hl", highlightColor);
 }
@@ -613,8 +629,11 @@ function setupPanel() {
 }
 
 function panelListener() {
-  /** @type {HTMLElement} */
+  /** @type {HTMLElement | null} */
   let panel = null;
+  /**
+   * @param {KeyboardEvent|MouseEvent} event
+   */
   return event => {
     const { target, type } = event;
 
@@ -622,24 +641,34 @@ function panelListener() {
 
     // For keys, we only care about Enter key to activate the panel
     // otherwise it's activated via a click.
-    if (type === "keydown" && event.key !== "Enter") return;
+    if (
+      type === "keydown" &&
+      /** @type {KeyboardEvent} */ (event).key !== "Enter"
+    )
+      return;
 
     const action = deriveAction(event);
 
     switch (action) {
       case "show": {
         hidePanel(panel);
-        /** @type {HTMLElement} */
+        /** @type {HTMLElement | null} */
         const dfn = target.closest("dfn, .index-term");
+        if (!dfn?.id) break;
         panel = document.getElementById(`dfn-panel-for-${dfn.id}`);
-        const coords = deriveCoordinates(event);
+        if (!panel) break;
+        const coords = deriveCoordinates(
+          /** @type {MouseEvent|KeyboardEvent} */ (event)
+        );
         displayPanel(dfn, panel, coords);
         break;
       }
       case "dock": {
-        panel.style.left = null;
-        panel.style.top = null;
-        panel.classList.add("docked");
+        if (panel) {
+          panel.style.left = "";
+          panel.style.top = "";
+          panel.classList.add("docked");
+        }
         break;
       }
       case "hide": {
@@ -690,7 +719,8 @@ function deriveAction(event) {
     if (hitALink) {
       return target.classList.contains("self-link") ? "hide" : "dock";
     }
-    const panel = target.closest(".dfn-panel");
+
+    const panel = /** @type {HTMLElement} */ (target.closest(".dfn-panel"));
     return panel.classList.contains("docked") ? "hide" : "none";
   }
   if (document.querySelector(".dfn-panel:not([hidden])")) {
@@ -734,9 +764,9 @@ function displayPanel(dfn, panel, { x, y }) {
     const newLeft = Math.max(MARGIN, x + MARGIN - panelRect.width);
     const newCaretOffset = left - newLeft;
     panel.style.left = `${newLeft}px`;
-    /** @type {HTMLElement} */
+    /** @type {HTMLElement | null} */
     const caret = panel.querySelector(".caret");
-    caret.style.left = `${newCaretOffset}px`;
+    if (caret) caret.style.left = `${newCaretOffset}px`;
   }
 
   // As it's a dialog, we trap focus.
@@ -785,6 +815,9 @@ function trapFocus(panel, dfn) {
 function createTrapListener(anchors, panel, dfn) {
   const lastIndex = anchors.length - 1;
   let currentIndex = 0;
+  /**
+   * @param {KeyboardEvent} event
+   */
   return event => {
     switch (event.key) {
       // Hitting "Tab" traps us in a nice loop around elements.
@@ -814,7 +847,7 @@ function createTrapListener(anchors, panel, dfn) {
   };
 }
 
-/** @param {HTMLElement} panel */
+/** @param {HTMLElement | null} panel */
 function hidePanel(panel) {
   if (!panel) return;
   panel.hidden = true;
