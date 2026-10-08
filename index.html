@@ -86,7 +86,7 @@ body:has(input[name=color-scheme][value=dark]:checked){color-scheme:dark}
 
 
 <meta name="color-scheme" content="light">
-<meta name="revision" content="477eb9ae96b2f61ba969199fad002d4877aa11be">
+<meta name="revision" content="d1bbcce9c6b984041c6875e9fcca878ca03f1ea7">
 <meta name="description" content="The web should be a platform that helps people and provides a net positive
 social benefit. As we continue to evolve the web platform, we must consider
 the consequences of our work. This document sets out questions for
@@ -156,7 +156,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   "wgPublicList": "www-tag",
   "github": "w3ctag/societal-impact-questionnaire",
   "format": "markdown",
-  "gitRevision": "477eb9ae96b2f61ba969199fad002d4877aa11be",
+  "gitRevision": "d1bbcce9c6b984041c6875e9fcca878ca03f1ea7",
   "publishISODate": "2026-10-08T00:00:00.000Z",
   "generatedSubtitle": "W3C Editor's Draft 08 October 2026"
 }</script>
@@ -326,12 +326,23 @@ something that may be used by citizens as part of their interactions with
 governments? Will it be used in workplaces or schools? Is it more applicable
 to a niche community? Is it something that a person might run on a device they
 carry with them (like a mobile phone or e-reader) or something that runs on a
-device in the home (like an internet-enabled fridge)?</p>
+device in the home (like an internet-enabled fridge)?
+Consider that people
+do not always use the web on a device of their own, in a place of their choosing.</p>
 <p>In this context, if access to the features in your specification become
 unavailable, what problems might this cause to end users? What mitigations do
 you have in place?</p>
-<aside class="example" id="example-critical-part"><div class="marker">
-    <a class="self-link" href="#example-critical-part">Example<bdi> 2</bdi></a><span class="example-title">: Becoming critical</span>
+<aside class="example" id="example-circumstances"><div class="marker">
+    <a class="self-link" href="#example-circumstances">Example<bdi> 2</bdi></a><span class="example-title">: Circumstances of use</span>
+  </div><p>Someone may be using
+a guest account on a shared or public computer,
+a household device that another family member administers,
+or their own device while crossing a border, where it may be subject to inspection.
+Features that assume
+the device belongs to, and is controlled by, one person
+may work against all of the device users' interests.</p>
+</aside><aside class="example" id="example-critical-part"><div class="marker">
+    <a class="self-link" href="#example-critical-part">Example<bdi> 3</bdi></a><span class="example-title">: Becoming critical</span>
   </div><p><a href="https://www.w3.org/TR/webrtc/">WebRTC</a> was designed to enable
 real-time audio and video communication between browsers.
 It has since become a critical part of
@@ -376,14 +387,14 @@ What mitigations are in place in the wider ecosystem?</p>
 problems you set out to solve when designing your feature(s). How does the
 threat model change? What unexpected consequences could arise?</p>
 <aside class="example" id="example-intentional-misuse"><div class="marker">
-    <a class="self-link" href="#example-intentional-misuse">Example<bdi> 3</bdi></a><span class="example-title">: Intentional Misuse</span>
+    <a class="self-link" href="#example-intentional-misuse">Example<bdi> 4</bdi></a><span class="example-title">: Intentional Misuse</span>
   </div><p>A bad actor could use the <a href="https://www.w3.org/TR/compute-pressure/">Compute Pressure
 API</a> to join web user identities across
 sites. To prevent this, the authors of the spec have included the requirement
 for user agents to minimize data exposure and implement rate obfuscation
 techniques to prevent side-channel information leaks.</p>
 </aside><aside class="example" id="example-accidental-misuse"><div class="marker">
-    <a class="self-link" href="#example-accidental-misuse">Example<bdi> 4</bdi></a><span class="example-title">: Accidental Misuse</span>
+    <a class="self-link" href="#example-accidental-misuse">Example<bdi> 5</bdi></a><span class="example-title">: Accidental Misuse</span>
   </div><p>Originally the <a href="https://www.w3.org/TR/referrer-policy/">Referrer Policy</a> specification had <code>no-referrer-when-downgrade</code> as the default behavior.
 <code>no-referrer-when-downgrade</code> sends the full URL to all destinations except on an HTTPS-to-HTTP request,
 which allowed developers to accidentally send personally identifying information in the <code>Referer</code> header.
@@ -395,14 +406,25 @@ features? What might they lose? Are end-users able to give meaningful consent
 to using these features? In what ways can people be coerced into using these
 features, for example by a malicious party; through the use of manipulative
 design features; through strong social or cultural expectations, etc?</p>
-</section><section id="what-groups-of-people-are-excluded-from-using-features-of-your-specification"><div class="header-wrapper"><h3 id="excluded"><bdi class="secno">2.6 </bdi>What groups of people are excluded from using features of your specification?</h3><a class="self-link" href="#excluded" aria-label="Permalink for Section 2.6"></a></div><p>What steps have you taken as part of the specification to ensure the features
+<aside class="example" id="example-shared-device-consent"><div class="marker">
+    <a class="self-link" href="#example-shared-device-consent">Example<bdi> 6</bdi></a><span class="example-title">: Consent on a shared device</span>
+  </div><p>Consent to use a feature
+is not always given freely,
+and is not always given by the person affected.
+The administrator of a shared device, like a guardian or a partner or an employer,
+may enable features on behalf of all the users of the device.
+If there is a power imbalance between these people,
+then the vulnerable person's activity (e.g. history or notifications) 
+may be exposed to the device's administrator.
+and the person affected may have no way to disable the feature at all or without consequence.</p>
+</aside></section><section id="what-groups-of-people-are-excluded-from-using-features-of-your-specification"><div class="header-wrapper"><h3 id="excluded"><bdi class="secno">2.6 </bdi>What groups of people are excluded from using features of your specification?</h3><a class="self-link" href="#excluded" aria-label="Permalink for Section 2.6"></a></div><p>What steps have you taken as part of the specification to ensure the features
 are available to as many people as possible? What additional steps have you
 taken / are being taken / will need to be taken in the wider ecosystem to
 improve access and inclusivity of these features?</p>
 <p>If certain groups are deliberately excluded from using these features, explain
 why.</p>
 <aside class="example" id="example-exclusion"><div class="marker">
-    <a class="self-link" href="#example-exclusion">Example<bdi> 5</bdi></a><span class="example-title">: Excluded Users</span>
+    <a class="self-link" href="#example-exclusion">Example<bdi> 7</bdi></a><span class="example-title">: Excluded Users</span>
   </div><p>The <a href="https://www.w3.org/TR/webgpu/">Web GPU specification</a>
 provides low-level access to developers, to allow them to render
 high-performance graphics like advanced 3D-rendering.
@@ -439,7 +461,7 @@ technologies contribute to these effects at scale, covering
 <a href="https://en.wikipedia.org/wiki/Problematic_social_media_use">social media use</a>,
 and <a href="https://en.wikipedia.org/wiki/Surveillance_capitalism">surveillance capitalism</a>.</p>
 <aside class="example" id="example-primitive-misuse"><div class="marker">
-    <a class="self-link" href="#example-primitive-misuse">Example<bdi> 6</bdi></a><span class="example-title">: Spec primitives and application-layer misuse</span>
+    <a class="self-link" href="#example-primitive-misuse">Example<bdi> 8</bdi></a><span class="example-title">: Spec primitives and application-layer misuse</span>
   </div><p>The <a href="https://notifications.spec.whatwg.org/">Notifications API</a> enables
 timely, useful alerts. At scale, its primitives have been used by
 applications to drive interruption based engagement that can undermine
@@ -467,7 +489,7 @@ disadvantages?</p>
 and the broader ecosystem, and how these effects interact with the factors
 that drive centralization.</p>
 <aside class="example" id="example-centralization"><div class="marker">
-    <a class="self-link" href="#example-centralization">Example<bdi> 7</bdi></a><span class="example-title">: Centralization in a decentralized protocol</span>
+    <a class="self-link" href="#example-centralization">Example<bdi> 9</bdi></a><span class="example-title">: Centralization in a decentralized protocol</span>
   </div><p><a href="https://www.w3.org/TR/activitypub/">ActivityPub</a> is a decentralized social
 networking protocol. Although the protocol allows anyone to run a server, it's
 expensive, which means the admins for a small number of large instances 
@@ -484,12 +506,12 @@ interested in any data you're collecting?
 What could be inferred from the data your feature exposes,
 and can people know about or challenge those inferences?</p>
 <aside class="example" id="example-surveillance"><div class="marker">
-    <a class="self-link" href="#example-surveillance">Example<bdi> 8</bdi></a><span class="example-title">: HTTPS and surveillance on the web</span>
+    <a class="self-link" href="#example-surveillance">Example<bdi> 10</bdi></a><span class="example-title">: HTTPS and surveillance on the web</span>
   </div><p>Before https was widely deployed governments were documented to be
 pervasively monitoring individuals' web usage.</p>
 <p>(Todo: refer to <a href="https://www.w3.org/2014/strint/">https://www.w3.org/2014/strint/</a>)</p>
 </aside><aside class="example" id="example-inference-at-scale"><div class="marker">
-    <a class="self-link" href="#example-inference-at-scale">Example<bdi> 9</bdi></a><span class="example-title">: Inference at scale</span>
+    <a class="self-link" href="#example-inference-at-scale">Example<bdi> 11</bdi></a><span class="example-title">: Inference at scale</span>
   </div><p>Machine learning changes what data can reveal, at global scale.
 Information that seems harmless when a feature is designed,
 such as sensor readings, typing patterns, or viewing history,
