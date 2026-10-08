@@ -86,7 +86,7 @@ body:has(input[name=color-scheme][value=dark]:checked){color-scheme:dark}
 
 
 <meta name="color-scheme" content="light">
-<meta name="revision" content="2198e13ef34b14bd21e3eb86cc14122a447d9188">
+<meta name="revision" content="1c514412425f742acfc7579b7d850813a0cca0c7">
 <meta name="description" content="The web should be a platform that helps people and provides a net positive
 social benefit. As we continue to evolve the web platform, we must consider
 the consequences of our work. This document sets out questions for
@@ -156,7 +156,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   "wgPublicList": "www-tag",
   "github": "w3ctag/societal-impact-questionnaire",
   "format": "markdown",
-  "gitRevision": "2198e13ef34b14bd21e3eb86cc14122a447d9188",
+  "gitRevision": "1c514412425f742acfc7579b7d850813a0cca0c7",
   "publishISODate": "2026-10-08T00:00:00.000Z",
   "generatedSubtitle": "W3C Editor's Draft 08 October 2026"
 }</script>
@@ -330,7 +330,19 @@ device in the home (like an internet-enabled fridge)?</p>
 <p>In this context, if access to the features in your specification become
 unavailable, what problems might this cause to end users? What mitigations do
 you have in place?</p>
-</section><section id="what-kinds-of-activities-could-your-specification-become-a-part-of-that-you-are-not-designing-for"><div class="header-wrapper"><h3 id="unexpected-use"><bdi class="secno">2.2 </bdi>What kinds of activities could your specification become a part of that you are not designing for?</h3><a class="self-link" href="#unexpected-use" aria-label="Permalink for Section 2.2"></a></div><p>Are there other use cases that can be met by your feature(s) that were not
+<aside class="example" id="example-critical-part"><div class="marker">
+    <a class="self-link" href="#example-critical-part">Example<bdi> 2</bdi></a><span class="example-title">: Becoming critical</span>
+  </div><p><a href="https://www.w3.org/TR/webrtc/">WebRTC</a> was designed to enable
+real-time audio and video communication between browsers.
+It has since become a critical part of
+remote healthcare appointments, schooling, court hearings, and job interviews.
+When it is unavailable to someone, because
+their device is old, their connection is poor, or their network blocks the traffic,
+they lose access to healthcare, education, justice, or employment.
+Specifications can anticipate this:
+WebRTC's connection establishment allows media to be relayed over the same ports as ordinary web traffic,
+so that calls can survive restrictive networks.</p>
+</aside></section><section id="what-kinds-of-activities-could-your-specification-become-a-part-of-that-you-are-not-designing-for"><div class="header-wrapper"><h3 id="unexpected-use"><bdi class="secno">2.2 </bdi>What kinds of activities could your specification become a part of that you are not designing for?</h3><a class="self-link" href="#unexpected-use" aria-label="Permalink for Section 2.2"></a></div><p>Are there other use cases that can be met by your feature(s) that were not
 part of your original plans? People who use, build and author on the web
 platform can be very creative and use features in unexpected ways. Think
 beyond the problems you set out to solve with your specification. How might
@@ -362,7 +374,7 @@ the wider ecosystem.</p>
 problems you set out to solve when designing your feature(s). How does the
 threat model change? What unexpected consequences could arise?</p>
 <aside class="example" id="example-misuse"><div class="marker">
-    <a class="self-link" href="#example-misuse">Example<bdi> 2</bdi></a><span class="example-title">: Misuse</span>
+    <a class="self-link" href="#example-misuse">Example<bdi> 3</bdi></a><span class="example-title">: Misuse</span>
   </div><p>A bad actor could use the <a href="https://www.w3.org/TR/compute-pressure/">Compute Pressure
 API</a> to join web user identities across
 sites. To prevent this, the authors of the spec have included the requirement
@@ -381,7 +393,7 @@ improve access and inclusivity of these features?</p>
 <p>If certain groups are deliberately excluded from using these features, explain
 why.</p>
 <aside class="example" id="example-exclusion"><div class="marker">
-    <a class="self-link" href="#example-exclusion">Example<bdi> 3</bdi></a><span class="example-title">: Excluded Users</span>
+    <a class="self-link" href="#example-exclusion">Example<bdi> 4</bdi></a><span class="example-title">: Excluded Users</span>
   </div><p>The <a href="https://www.w3.org/TR/webgpu/">Web GPU specification</a>
 provides low-level access to developers, to allow them to render
 high-performance graphics like advanced 3D-rendering.
@@ -418,7 +430,7 @@ technologies contribute to these effects at scale, covering
 <a href="https://en.wikipedia.org/wiki/Problematic_social_media_use">social media use</a>,
 and <a href="https://en.wikipedia.org/wiki/Surveillance_capitalism">surveillance capitalism</a>.</p>
 <aside class="example" id="example-primitive-misuse"><div class="marker">
-    <a class="self-link" href="#example-primitive-misuse">Example<bdi> 4</bdi></a><span class="example-title">: Spec primitives and application-layer misuse</span>
+    <a class="self-link" href="#example-primitive-misuse">Example<bdi> 5</bdi></a><span class="example-title">: Spec primitives and application-layer misuse</span>
   </div><p>The <a href="https://notifications.spec.whatwg.org/">Notifications API</a> enables
 timely, useful alerts. At scale, its primitives have been used by
 applications to drive interruption based engagement that can undermine
@@ -455,12 +467,12 @@ interested in any data you're collecting?
 What could be inferred from the data your feature exposes,
 and can people know about or challenge those inferences?</p>
 <aside class="example" id="example-surveillance"><div class="marker">
-    <a class="self-link" href="#example-surveillance">Example<bdi> 5</bdi></a><span class="example-title">: HTTPS and surveillance on the web</span>
+    <a class="self-link" href="#example-surveillance">Example<bdi> 6</bdi></a><span class="example-title">: HTTPS and surveillance on the web</span>
   </div><p>Before https was widely deployed governments were documented to be
 pervasively monitoring individuals' web usage.</p>
 <p>(Todo: refer to <a href="https://www.w3.org/2014/strint/">https://www.w3.org/2014/strint/</a>)</p>
 </aside><aside class="example" id="example-inference-at-scale"><div class="marker">
-    <a class="self-link" href="#example-inference-at-scale">Example<bdi> 6</bdi></a><span class="example-title">: Inference at scale</span>
+    <a class="self-link" href="#example-inference-at-scale">Example<bdi> 7</bdi></a><span class="example-title">: Inference at scale</span>
   </div><p>Machine learning changes what data can reveal, at global scale.
 Information that seems harmless when a feature is designed,
 such as sensor readings, typing patterns, or viewing history,
