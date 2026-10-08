@@ -81,6 +81,14 @@ benefit to a small number may result in a wider society where the same threat
 or benefit is commonplace, when the technology is available as part of the web
 platform.
 
+Throughout this document, web platform technologies refers broadly to
+technologies intended for use on the web: protocols, data formats,
+vocabularies, and programming interfaces. The questions are not limited to
+features implemented in web user agents [[web-user-agents]]. They apply
+equally to specifications whose implementations are servers, services,
+applications, or devices, and to specifications with no user agent
+involvement at all.
+
 ### The purpose of this document {#purpose}
 
 This document is not a checklist for specifications. It is not included as 
@@ -187,7 +195,7 @@ techniques to prevent side-channel information leaks.
 
 </aside>
 
-### Can users of the Web Platform choose not to use features of your specification? {#opt-out}
+### Can people choose not to use features of your specification? {#opt-out}
 
 What does your specification do from an end-user perspective? What happens if
 the end-user doesn't want that? How easy is it for someone to opt out of these
@@ -271,8 +279,8 @@ primitives, and whether it provides controls to mitigate misuse.
 As a result of these features, explain which parties are granted additional
 power, and which have power removed, and to what extent. In a worst case
 scenario, what power imbalances are exacerbated as a result of implementations
-of your specification? Parties to consider include the User Agent, device and
-software vendors, site authors, users of the Web Platform, intermediaries.
+of your specification? Parties to consider include user agents, service
+operators, device and software vendors, content authors, web developers, and people using the web.
 
 Where is power concentrated in the ecosystem of which your specification is a
 part, and do features of your specification increase or reduce that
@@ -346,7 +354,7 @@ if an expert was going to attempt to do so?
 What steps have you taken to increase efficiency, or decrease processing
 requirements of the devices which will run implementations of your
 specification? If applicable, how are you reducing data storage needs on
-clientside devices?
+people's devices?
 
 Does your specification add features that will encourage or necessitate web
 users to update their devices (either software or hardware) to use them?
