@@ -86,7 +86,7 @@ body:has(input[name=color-scheme][value=dark]:checked){color-scheme:dark}
 
 
 <meta name="color-scheme" content="light">
-<meta name="revision" content="97435862245cba983cf79a440010328619800087">
+<meta name="revision" content="d67964a495b1d1848ac4cf51dcf9eeb4c419c906">
 <meta name="description" content="The web should be a platform that helps people and provides a net positive
 social benefit. As we continue to evolve the web platform, we must consider
 the consequences of our work. This document sets out questions for
@@ -156,16 +156,16 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   "wgPublicList": "www-tag",
   "github": "w3ctag/societal-impact-questionnaire",
   "format": "markdown",
-  "gitRevision": "97435862245cba983cf79a440010328619800087",
-  "publishISODate": "2026-10-12T00:00:00.000Z",
-  "generatedSubtitle": "W3C Editor's Draft 12 October 2026"
+  "gitRevision": "d67964a495b1d1848ac4cf51dcf9eeb4c419c906",
+  "publishISODate": "2026-10-14T00:00:00.000Z",
+  "generatedSubtitle": "W3C Editor's Draft 14 October 2026"
 }</script>
 <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/W3C-ED">
 <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/dark.css" disabled=""></head><body class="informative h-entry"><div class="head">
     <p class="logos"><a class="logo" href="https://www.w3.org/"><img crossorigin="" alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width="72">
   </a></p>
     <h1 id="title" class="title">Self-Review Questionnaire: Societal Impact</h1> 
-    <p id="w3c-state"><a href="https://www.w3.org/standards/types#ED">W3C Editor's Draft</a> <time class="dt-published" datetime="2026-10-12">12 October 2026</time></p>
+    <p id="w3c-state"><a href="https://www.w3.org/standards/types#ED">W3C Editor's Draft</a> <time class="dt-published" datetime="2026-10-14">14 October 2026</time></p>
     <details open="">
       <summary>More details about this document</summary>
       <dl>
@@ -540,7 +540,27 @@ specification?</p>
 <p>Do features of your specification enable or facilitate interactions
 which would have a positive impact on the environment compared with how
 similar things are achieved without these features?</p>
-</section><section id="what-is-the-expected-lifetime-of-your-specification-feature-s"><div class="header-wrapper"><h3 id="lifetime"><bdi class="secno">2.13 </bdi>What is the expected lifetime of your specification feature(s)?</h3><a class="self-link" href="#lifetime" aria-label="Permalink for Section 2.13"></a></div><p>Once something is added to the web platform it is very difficult to remove it.</p>
+<aside class="example" id="example-ai-footprint"><div class="marker">
+    <a class="self-link" href="#example-ai-footprint">Example<bdi> 12</bdi></a><span class="example-title">: The footprint of AI</span>
+  </div><p>Training and operating large machine learning models consumes vast amounts of
+<a href="https://www.unep.org/resources/report/artificial-intelligence-ai-end-end-environmental-impact-full-ai-lifecycle-needs-be">energy and water</a>.
+Data centres used about
+<a href="https://www.iea.org/reports/energy-and-ai">1.5% of the world's electricity in 2024</a>,
+and are among the fastest growing sources of emissions,
+driven in large part by AI.
+These costs are not shared equally:
+they add to climate harms that
+<a href="https://www.unhcr.org/publications/no-escape-frontlines-climate-change-conflict-and-forced-displacement">displace people</a>
+and fall hardest on those who benefit least,
+while communities near data centres face strained water and power supplies.
+Every use of such a model adds to these costs,
+wherever it runs,
+and designs that place a model between people and everything they do
+multiply them across the web.
+Not every feature needs a model;
+consider whether the benefit is worth the cost,
+and whether people can use the feature without one.</p>
+</aside></section><section id="what-is-the-expected-lifetime-of-your-specification-feature-s"><div class="header-wrapper"><h3 id="lifetime"><bdi class="secno">2.13 </bdi>What is the expected lifetime of your specification feature(s)?</h3><a class="self-link" href="#lifetime" aria-label="Permalink for Section 2.13"></a></div><p>Once something is added to the web platform it is very difficult to remove it.</p>
 <p>Are the features in your specification expected to remain stable and relevant
 for months, years, or decades? What circumstances would result in a need to
 deprecate these features? Do you have a strategy for deprecation, replacement
