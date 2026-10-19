@@ -200,6 +200,20 @@ platforms, or well-funded implementers. Engaging with communities outside the
 specification development process can surface assumptions that would otherwise
 go unexamined.
 
+<aside class="example" title="Whose name fits" id="example-personal-names">
+
+HTML's [autofill field names](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofill)
+let a form ask for a full `name`,
+or for parts such as `given-name` and `family-name`.
+[Personal names around the world](https://www.w3.org/International/questions/qa-personal-names)
+documents names that do not fit those parts:
+single names, patronymics, double family names, and family-name-first orders.
+The specification itself warns that these narrower fields "tend to expose Western biases",
+yet forms built on them are everywhere,
+and people whose names do not fit must reshape them to take part.
+
+</aside>
+
 ### What risks do you see in features of your specification being misused, or used differently from how you intended? {#misuse}
 
 Think about worst case scenarios. Bad actors may try to trick people, try to
