@@ -199,6 +199,20 @@ platforms, or well-funded implementers. Engaging with communities outside the
 specification development process can surface assumptions that would otherwise
 go unexamined.
 
+<aside class="example" title="Whose name fits" id="example-personal-names">
+
+HTML's [autofill field names](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofill)
+let a form ask for a full `name`,
+or for parts such as `given-name` and `family-name`.
+[Personal names around the world](https://www.w3.org/International/questions/qa-personal-names)
+documents names that do not fit those parts:
+single names, patronymics, double family names, and family-name-first orders.
+The specification itself warns that these narrower fields "tend to expose Western biases",
+yet forms built on them are everywhere,
+and people whose names do not fit must reshape them to take part.
+
+</aside>
+
 ### What risks do you see in features of your specification being misused, or used differently from how you intended? {#misuse}
 
 Think about worst case scenarios. Bad actors may try to trick people, try to
@@ -341,12 +355,33 @@ scenario, what power imbalances are exacerbated as a result of implementations
 of your specification? Parties to consider include user agents, service
 operators, device and software vendors, content authors, web developers, and people using the web.
 
+Specification authors also hold power,
+as the assumptions they standardise become defaults that others must fit.
+The [[[design-principles]]] put user needs first
+and the needs of specification writers nearly last,
+a reminder that those with the most influence over the web's rules
+are asked to count their own needs least.
+
 Where is power concentrated in the ecosystem of which your specification is a
 part, and do features of your specification increase or reduce that
 concentration of power?
 
 What structural inequalities may be reinforced by the ecosystem your
 specification is part of, and which may be reduced?
+
+<aside class="example" title="Who decides what people sign in with" id="example-attestation">
+
+[Web Authentication](https://www.w3.org/TR/webauthn-3/) defines attestation,
+which lets a service check what kind of device or software created a person's credential.
+It serves high-security credentials,
+though the specification does not confine it there.
+A service can use it to decide what people may sign in with.
+Ultimately, whether to offer attestation is each implementation's decision,
+not the specification's.
+When a specification creates a lever like this,
+ask who can pull it, now or later, and who can refuse.
+
+</aside>
 
 ### What points of centralization does your feature bring to the web platform? {#centralization}
 
